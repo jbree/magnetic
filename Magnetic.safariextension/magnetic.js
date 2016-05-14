@@ -1,7 +1,15 @@
+// use the contextmenu event to add a context menu item if a magnet link
+// has been clicked
 safari.application.addEventListener('contextmenu', function (event) {
   if(event.userInfo && event.userInfo.magnet) {
     event.contextMenu.appendContextMenuItem('sendMagnet', "Send Magnet to Transmission");
+  }
+}, false);
 
+// when the sendMagnet command is received, send the request to the
+// user's specified transmission server.
+safari.application.addEventListener('command', function (event) {
+  if(event.command === 'sendMagnet') {
     sendRequest({
       url: event.userInfo.magnet,
       server: safari.extension.settings.server,
@@ -9,7 +17,7 @@ safari.application.addEventListener('contextmenu', function (event) {
       retry: 3
     });
   }
-}, false);
+});
 
 function sendRequest(config) {
   var error = false;
