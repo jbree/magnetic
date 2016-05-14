@@ -6,7 +6,7 @@
 		<key>DefaultValue</key>
 		<string>http://localhost:9091/transmission/rpc</string>
 		<key>Key</key>
-		<string>serverURL</string>
+		<string>server</string>
 		<key>Title</key>
 		<string>Transmission Server</string>
 		<key>Type</key>
