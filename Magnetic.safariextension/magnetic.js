@@ -24,7 +24,7 @@ function sendRequest(config) {
   req.open('POST', config.server, true);
   req.setRequestHeader('X-Transmission-Session-Id', config.id);
   req.addEventListener('load', function () {
-    if(req.status == 409) {
+    if(req.status === 409) {
       console.log('Magnetic: received new session id');
       config.id = req.getResponseHeader('X-Transmission-Session-Id');
       if(--config.retry) {
@@ -33,6 +33,10 @@ function sendRequest(config) {
       } else {
         console.log('Magnetic: giving up after 3 attempts');
       }
+    }
+    if(req.status === 200) {
+      var res = JSON.parse(req.response);
+      console.log('Magnetic: Server response \'' + res.result + '\'');
     }
   });
   req.addEventListener('error', function () {
