@@ -10,9 +10,16 @@ safari.application.addEventListener('contextmenu', function (event) {
 // user's specified transmission server.
 safari.application.addEventListener('command', function (event) {
   if(event.command === 'sendMagnet') {
+    var auth = null;
+    if(safari.extension.settings.authEnabled) {
+      var username = safari.extension.settings.username;
+      var password = safari.extension.secureSettings.password;
+      auth = btoa(username + ':' + password);
+    }
     sendRequest({
       url: event.userInfo.magnet,
       server: safari.extension.settings.server,
+      auth: auth,
       id: getSessionId(),
       retry: 3
     });
@@ -39,6 +46,9 @@ function sendRequest(config) {
   var req = new XMLHttpRequest();
   req.open('POST', config.server, true);
   req.setRequestHeader('X-Transmission-Session-Id', config.id);
+  if(config.auth) {
+    req.setRequestHeader('Authorization', 'Basic ' + config.auth);
+  }
   req.addEventListener('load', function () {
     if(req.status === 409) {
       // 409 means we have the wrong session id. store it in settings and retry.

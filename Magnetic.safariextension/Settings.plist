@@ -16,5 +16,39 @@
 		<key>Key</key>
 		<string>sessionId</string>
 	</dict>
+	<dict>
+		<key>DefaultValue</key>
+		<string>false</string>
+		<key>Key</key>
+		<string>authEnabled</string>
+		<key>Secure</key>
+		<false/>
+		<key>Title</key>
+		<string>Send Username and Password</string>
+		<key>Type</key>
+		<string>CheckBox</string>
+	</dict>
+		<dict>
+		<key>DefaultValue</key>
+		<string>admin</string>
+		<key>Key</key>
+		<string>username</string>
+		<key>Title</key>
+		<string>Username</string>
+		<key>Type</key>
+		<string>TextField</string>
+	</dict>
+	<dict>
+		<key>Key</key>
+		<string>password</string>
+		<key>Password</key>
+		<true/>
+		<key>Secure</key>
+		<true/>
+		<key>Title</key>
+		<string>Password (send unencrypted)</string>
+		<key>Type</key>
+		<string>TextField</string>
+	</dict>
 </array>
 </plist>
