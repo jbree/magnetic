@@ -28,7 +28,7 @@
 		<key>Type</key>
 		<string>CheckBox</string>
 	</dict>
-		<dict>
+	<dict>
 		<key>DefaultValue</key>
 		<string>admin</string>
 		<key>Key</key>
