@@ -1,0 +1,43 @@
+.magnetic#wrapper {
+  position: absolute;
+  display:flex;
+  align-items:center;
+  top:32px;
+  left:32px;
+  border-radius:6px;
+  background-color: rgba(221,221,221,0.8);
+  overflow: visible;
+  float:left;
+}
+
+.magnetic #notch {
+  position: absolute;
+  top:-10px;
+  left:32px;
+	width: 0;
+	height: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 10px solid rgba(221,221,221,0.8);
+}
+
+.magnetic img {
+  float: left;
+  position:relative;
+  width: 64px;
+  height: 64px;
+  padding: 4px;
+  top:50%;
+}
+
+.magnetic p {
+  font-family: sans-serif;
+  font-weight: bold;
+  margin: 0;
+  padding: 8px;
+  line-height: 12px;
+}
+
+.magnetic a {
+  color: #d20004;
+}
