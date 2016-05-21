@@ -56,11 +56,9 @@ var magneticInject = (function () {
       // if the url is a magnet
       if(url) {
         if(target.id === 'magnetic-plugin-disabled') {
-
-          console.log('download the magnet normally');
+          // download locally
         } else if (target.id === 'magnetic-plugin-enabled') {
           // send this to the extension to handle
-          console.log('send magnet to the extension');
           safari.self.tab.dispatchMessage('sendMagnet',{magnet:url[0]});
           event.preventDefault();
 
