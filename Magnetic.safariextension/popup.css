@@ -9,6 +9,7 @@
   background-color: rgba(221,221,221,0.9);
   overflow: visible;
   float:left;
+  z-index: 9999;
 }
 
 .magnetic #notch {

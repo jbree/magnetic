@@ -13,6 +13,8 @@ var magneticInject = (function () {
     '  <p><a href="" id="magnetic-plugin-enabled">Send to Server</a></p>' +
     '  <p><a href="" id="magnetic-plugin-disabled">Download Locally</a></p>' +
     '</span>';
+    var html = document.getElementsByTagName('body');
+    html[0].appendChild(popup);
   }());
   /**
    * determine if an anchor with a magnet URL was clicked.
@@ -63,14 +65,10 @@ var magneticInject = (function () {
           event.preventDefault();
 
         } else {
-          // create the popup links
-          // popup = document.getElementById('wrapper');
-          target.parentElement.appendChild(popup);
-          wrapper.style.left = (event.clientX - 40 + document.body.scrollLeft + document.documentElement.scrollLeft) + 'px';
-          wrapper.style.top = (event.clientY + 24 + document.body.scrollTop + document.documentElement.scrollTop) + 'px';
-          wrapper.style.visibility = "visible";
+          popup.style.left = (event.clientX - 40) + 'px';
+          popup.style.top = (event.clientY + 24) + 'px';
+          popup.style.visibility = "visible";
           isOpen = true;
-          console.log(event);
           var nativeLink = document.getElementById('magnetic-plugin-disabled');
           var serverLink = document.getElementById('magnetic-plugin-enabled');
           nativeLink.href = url;
