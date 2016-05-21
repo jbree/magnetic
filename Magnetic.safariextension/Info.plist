@@ -5,7 +5,7 @@
 	<key>Author</key>
 	<string>Joshua Breeden</string>
 	<key>Builder Version</key>
-	<string>11601.6.17</string>
+	<string>11601.5.17.1</string>
 	<key>CFBundleDisplayName</key>
 	<string>Magnetic</string>
 	<key>CFBundleIdentifier</key>
@@ -13,7 +13,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>0.5</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>Chrome</key>
