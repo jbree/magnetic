@@ -1,6 +1,7 @@
 .magnetic#wrapper {
   position: absolute;
   display:flex;
+  visibility: hidden;
   align-items:center;
   top:32px;
   left:32px;
