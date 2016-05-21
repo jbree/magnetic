@@ -1,30 +1,46 @@
-// use the contextmenu event to add a context menu item if a magnet link
-// has been clicked
+/**
+ * use the contextmenu event to add a context menu item if a magnet link
+ * has been clicked
+ */
 safari.application.addEventListener('contextmenu', function (event) {
   if(event.userInfo && event.userInfo.magnet) {
     event.contextMenu.appendContextMenuItem('sendMagnet', "Send Magnet to Transmission");
   }
 }, false);
 
-// when the sendMagnet command is received, send the request to the
-// user's specified transmission server.
+/**
+ * handle sendMagnet command from contextual menu
+ */
 safari.application.addEventListener('command', function (event) {
   if(event.command === 'sendMagnet') {
-    var auth = null;
-    if(safari.extension.settings.authEnabled) {
-      var username = safari.extension.settings.username;
-      var password = safari.extension.secureSettings.password;
-      auth = btoa(username + ':' + password);
-    }
-    sendRequest({
-      url: event.userInfo.magnet,
-      server: safari.extension.settings.server,
-      auth: auth,
-      id: getSessionId(),
-      retry: 3
-    });
+    sendMagnetToServer(event.userInfo.magnet);
   }
 });
+
+/**
+ * handle sendMagnet messages
+ */
+safari.application.addEventListener('message', function (event) {
+  if(event.name === 'sendMagnet') {
+    sendMagnetToServer(event.message.magnet);
+  }
+});
+
+function sendMagnetToServer(magnetURL) {
+  var auth = null;
+  if(safari.extension.settings.authEnabled) {
+    var username = safari.extension.settings.username;
+    var password = safari.extension.secureSettings.password;
+    auth = btoa(username + ':' + password);
+  }
+  sendRequest({
+    url: magnetURL,
+    server: safari.extension.settings.server,
+    auth: auth,
+    id: getSessionId(),
+    retry: 3
+  });
+}
 
 // get the X-Transmission-Session-Id in user settings.
 function setSessionId(id) {
