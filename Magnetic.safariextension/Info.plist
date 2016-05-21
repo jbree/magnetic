@@ -25,11 +25,15 @@
 	<dict>
 		<key>Scripts</key>
 		<dict>
-			<key>Start</key>
+			<key>End</key>
 			<array>
 				<string>inject.js</string>
 			</array>
 		</dict>
+		<key>Stylesheets</key>
+		<array>
+			<string>popup.css</string>
+		</array>
 	</dict>
 	<key>Description</key>
 	<string>Send magnet links to your Transmission server</string>
