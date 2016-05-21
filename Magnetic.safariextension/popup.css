@@ -41,7 +41,8 @@
 }
 
 .magnetic a {
-  color: #d20004 !important;
-  text-decoration: underline !important;
-  font-size: 12pt !important;
+  color: #d20004              !important;
+  text-decoration: underline  !important;
+  font-size: 12pt             !important;
+  border-bottom: 0            !important;
 }
