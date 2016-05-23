@@ -8,7 +8,7 @@ var magneticInject = (function () {
     popup.id = 'wrapper';
     popup.innerHTML =
     '<div id="notch"></div>' +
-    '<img src="' + safari.extension.baseURI + 'Icon-128.png">' +
+    '<img src="' + safari.extension.baseURI + 'icon.svg">' +
     '<span id="links">' +
     '  <p><a href="" id="magnetic-plugin-enabled">Send to Server</a></p>' +
     '  <p><a href="" id="magnetic-plugin-disabled">Download Locally</a></p>' +
